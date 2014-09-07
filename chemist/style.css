@@ -1,0 +1,97 @@
+
+html{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	background: black;
+	//background-image: url(bg.png);
+	background-size: cover;
+
+	color: white;
+	font-family: "Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: normal;
+}
+
+div{
+	text-align:center;
+}
+
+a{
+	color: white;
+}
+a:active, a:hover{
+	text-decoration:none;
+	color: white;
+}
+
+
+video#bgvid {
+	position: fixed; right: 0; bottom: 0;
+	min-width: 100%; min-height: 100%;
+	width: auto; height: auto; z-index: -100;
+	display:none;
+}
+
+div#navbar{
+	background: transparent;
+	border: 0;
+	margin-top: 15px;
+}
+
+div#navbar img{
+	margin-top: -5px;
+}
+div#navbar ul{float: none; }
+div#navbar li{float: none; display:inline-block;}
+div#navbar a{float: none;}
+div#navbar a{
+	font-weight: normal;
+	color: white;
+	opacity: 0.5 ;
+
+}
+div#navbar a:hover{
+	opacity: 0.65 ;
+}
+
+div#main{
+	position:absolute;
+	top:23%;
+	width: 100%;
+}
+div#main h1{
+	font-weight: normal;
+	font-size: 58px;
+	margin-bottom:0;
+}
+div#main .lead{
+	margin-bottom:0;
+	font-size: 25px;
+	font-weight: normal;
+}
+div#main .sub a{
+	font-size: 16px;
+	opacity: 0.6;
+}
+div#main .sub a:hover{
+	opacity: 0.75;
+}
+
+
+div#footer{
+	position: absolute;
+	bottom:0;
+	width: 100%;
+	font-size: 11px;
+}
+div#footer p{
+	margin:0;
+}
+div#footer a{
+	opacity: 0.4;
+}
+div#footer a:hover{
+	opacity: 0.55;
+}
