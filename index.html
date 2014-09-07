@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>THIX</title>
+	<style>
+	body{
+		-webkit-transition: 1s;
+		web0transition: 1s;
+	}
+	body.change div.main span, body.change div.main, body.change div.main div.sublink{color: rgba(0,0,0,0.2); }
+
+	body.chemist{background: #0066FF; }
+	body.machinist{background: #000000; }
+
+	div.main{
+		position: relative;
+		top: 40vh;
+		text-align: center;
+		font-family: 'Helvetica Neue';
+		font-size: 20px;
+		font-weight: 100;
+	}
+	.main .thix{
+		color: red;
+		font-weight: 200;
+	}
+	.main .link{
+		display: inline-block;
+		width: 80px;
+		text-align: left;
+		vertical-align: text-top;
+		cursor: pointer;
+	}
+	.d{color: #0066FF; }
+	.r{color: #FF9933; }
+	.e{color: #669933; }
+	.a{color: #669966; }
+	.m{color: #CC3366; }
+	.s{color: #FFCC33; }
+	.chemist{color: #0066FF;}
+	.machinist{color: #FF9933;}
+	.dreams span{
+		-webkit-transition: 0.5s;
+		web0transition: 0.5s;
+	}
+	.link:hover .dreams span{color:rgba(0,0,0,0.7);}
+	.sublink{
+		display: none; 
+		position: relative;
+		//-webkit-transition: 0.5s;
+		//web0transition: 0.5s;
+	}
+	.sublink div{
+		display: none;
+		position: absolute;
+		text-align: right;
+		font-weight: 100;
+		color: white;
+		width: 300px;
+		left: -300px;
+		top: 0px;
+	}
+	div.main div.link div.sublink:hover{
+		font-weight:200;
+		color: white;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="main">
+		<span class="thix">THIX</span>
+		Developing Apps for your childhood
+		<div class="link" id="link">
+			<div class ='dreams'>
+				<span class='d'>D</span><span class='r'>r</span><span class='e'>e</span><span class='a'>a</span><span class='m'>m</span><span class='s'>s</span>
+			</div>
+			<div class="chemist sublink" data-link='chemist'>
+				Chemist
+				<div>Your Dreamed Chemical Lab&nbsp;</div>
+			</div>
+			<div class='machinist sublink' data-link='machinist'>
+				Machinist
+				<div>Your Dreamed Machine Lab&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+	$( document ).ready(function() {
+		$('.link').mouseover(function(){
+			$('.sublink').fadeIn(500);
+		}).mouseleave(function(){
+			$('.sublink').fadeOut(500);
+		});
+
+		$('.sublink').mouseover(function(){
+			$('body').addClass($(this).attr('data-link')+' change');
+			$(this).find('div').fadeIn(500);
+		}).mouseleave(function(){
+			$('body').removeClass($(this).attr('data-link')+ ' change');
+			$(this).find('div').fadeOut(500);
+		});
+
+	});
+	</script>
+</body>
+</html>
