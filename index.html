@@ -4,22 +4,27 @@
 	<meta charset="utf-8">
 	<title>THIX</title>
 	<style>
+	html{height: 100%; width: 100%; }
+	a:link {text-decoration: none; }
+	a:visited {text-decoration: none; }
+	a:hover {text-decoration: none; }
+	a:active {text-decoration: none; }
 	body{
 		-webkit-transition: 1s;
 		web0transition: 1s;
+		font-family: 'Helvetica Neue';
+		font-weight: 100;
 	}
-	body.change div.main span, body.change div.main, body.change div.main div.sublink{color: rgba(0,0,0,0.2); }
+	body.change div.main span, body.change div.main, body.change div.main div.sublink, body.change div.main div.dreams span{color: rgba(0,0,0,0); }
 
-	body.chemist{background: #0066FF; }
-	body.machinist{background: #000000; }
+	body.chemist{background: #3399FC;; }
+	body.machinist{background: #FFCC33;	; }
 
 	div.main{
 		position: relative;
 		top: 40vh;
 		text-align: center;
-		font-family: 'Helvetica Neue';
 		font-size: 20px;
-		font-weight: 100;
 	}
 	.main .thix{
 		color: red;
@@ -61,9 +66,32 @@
 		left: -300px;
 		top: 0px;
 	}
+	.sublink.hidden{
+		color: transparent;
+	}
 	div.main div.link div.sublink:hover{
 		font-weight:200;
 		color: white;
+	}
+	div#footer{
+		line-height: 1.42857143;
+		position:fixed;
+		text-align: center;
+		color: #333;
+		bottom:0px;
+		width: 100%;
+		font-size: 11px;
+	}
+	div#footer p{
+		margin:0;
+	}
+	div#footer a{
+		opacity: 0.6;
+		color: #000000;
+	}
+	div#footer a:hover{
+		opacity: 1;
+		color: #000000;
 	}
 
 	</style>
@@ -86,6 +114,16 @@
 			</div>
 		</div>
 	</div>
+	<div id='footer'>
+		<p>
+        	<a href='mailto:support@thixlab.com'>support@thixlab.com</a>
+			<br>
+			<a href='https://www.facebook.com/THIXLAB'>Facebook</a>
+			<a>|</a>
+			<a href='http://twitter.com'>Twitter</a>
+		</p>
+		<p style='opacity: 0.6'>© 2014 THIX</p>
+	</div>
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript">
 	$( document ).ready(function() {
@@ -96,11 +134,18 @@
 		});
 
 		$('.sublink').mouseover(function(){
+			$(this).removeClass('hidden');
+			$(this).siblings('.sublink').addClass('hidden');
 			$('body').addClass($(this).attr('data-link')+' change');
 			$(this).find('div').fadeIn(500);
 		}).mouseleave(function(){
 			$('body').removeClass($(this).attr('data-link')+ ' change');
 			$(this).find('div').fadeOut(500);
+			//$(this).siblings('.sublink').removeClass('hidden');
+		});
+
+		$('.dreams').mouseover(function(){
+			$('.sublink').removeClass('hidden');
 		});
 
 	});
