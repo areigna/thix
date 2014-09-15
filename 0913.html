@@ -85,12 +85,20 @@
 	.sublink div{
 		display: none;
 		position: absolute;
-		text-align: right;
 		font-weight: 200;
 		color: white;
+		top: 0px;
+	}
+	.sublink div.left{
+		text-align: right;
 		width: 300px;
 		left: -300px;
-		top: 0px;
+	}
+	.sublink div.right{
+		text-align: left;
+		width: 300px;
+		left: 80px;
+		opacity: 0.3;
 	}
 	.sublink.hidden{
 		color: transparent;
@@ -134,20 +142,22 @@
 		</div>
 		<div class="chemist sublink" data-link='chemist'>
             Chemist
-            <div>Your Dream Chemical Lab&nbsp;</div>
+            <div class='left'>Your Dream Chemical Lab&nbsp;</div>
         </div>
         <div class='machinist sublink' data-link='machinist'>
             Machinist
-            <div>Your Dream Machinery Workshop&nbsp;</div>
+            <div class='left'>Your Dream Machinery Workshop&nbsp;</div>
        </div>
 		<div class='gardener sublink' data-link='gardener'>
 		Gardener
-		<div>Your Dream Private Garden&nbsp;</div>
+		<div class='left'>Your Dream Private Garden&nbsp;</div>
+		<div class='right'>Coming Soon</div>
 		</div>
         
 		<div class='dreamer sublink' data-link='dreamer'>
 		Dreamer
-			<div>Your Dreamy Drawing Space&nbsp;</div>
+			<div class='left'>Your Dreamy Drawing Space&nbsp;</div>
+			<div class='right'>Coming Soon</div>
 		</div>
 		</div>
 	</div>
@@ -189,6 +199,7 @@
 		$('.sublink').removeClass('hidden');
 	});
 	$('.sublink').click(function(){
+		if($(this).find('.right').size()) return;
 		window.location.href = $(this).attr('data-link') + '.html';
 	});
 
